@@ -1,0 +1,4 @@
+manim
+streamlit
+numpy
+matplotlib.pyplot
