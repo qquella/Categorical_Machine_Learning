@@ -1,0 +1,55 @@
+# Byte-compiled / packaged files
+__pycache__/
+*.py[cod]
+*.so
+*.pyo
+*.pyd
+*.whl
+*.egg-info/
+*.egg
+
+# Virtual environment
+venv/
+env/
+.venv/
+.python-version
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Streamlit cache
+.streamlit/
+
+# Logs and debugging
+logs/
+*.log
+debug.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Environment variables / Credentials
+.env
+*.secret
+*.key
+*.pem
+
+# Dependency lock files (optional, if using poetry/pipenv)
+Pipfile.lock
+poetry.lock
+
+# Ignore compiled and binary files
+*.exe
+*.dll
+*.o
+*.a
+*.out
+*.so
+
+# Ignore database files (if applicable)
+*.sqlite3
+*.db
+
+# Ignore VSCode settings (if using VSCode)
+.vscode/
