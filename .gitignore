@@ -13,6 +13,7 @@ venv/
 env/
 .venv/
 .python-version
+rl_ct/
 
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
@@ -50,6 +51,9 @@ poetry.lock
 # Ignore database files (if applicable)
 *.sqlite3
 *.db
+
+# Ignore git files
+*.git 
 
 # Ignore VSCode settings (if using VSCode)
 .vscode/
