@@ -106,14 +106,13 @@ tab1.markdown(
     \n
 - [Markov category (nLab)](https://ncatlab.org/nlab/show/Markov+category) -- a wiki for collaborative work on Mathematics, Physics, and Philosophy
 
-    """
-    \n
+\n
+
 - [Function Approximation in Reinforcement Learning](https://towardsdatascience.com/function-approximation-in-reinforcement-learning-85a4864d566/) -- What to do when state and action spaces explode… literally?
 \n
 - [Introduction to Q-learning with OpenAI Gym](https://medium.com/swlh/introduction-to-q-learning-with-openai-gym-2d794da10f3d) -- A step-by-step guide to using Q-learning to solve a simple Taxi-3 environment in OpenAI Gym
 
 """
-
 )
 
 tab4.subheader(":blue[Books]")
