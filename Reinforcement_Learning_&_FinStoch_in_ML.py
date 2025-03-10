@@ -11,7 +11,7 @@ st.video("./vid/coin_toss.mp4", autoplay=True, loop=True)
 
 with st.expander("Topics Overview", expanded=True):
     st.page_link(
-        "./pages/1_Markrov_Decision_Process.py",
+        "./pages/1_markrov_decision_process.py",
         label="Markrov Decision Process",
         icon="🎲",
     )
@@ -26,11 +26,11 @@ with st.expander("Topics Overview", expanded=True):
         label="What Is Catergory Theory?",
         icon="🧩",
     )
-    st.page_link("./pages/5_Finstoch.py", label="FinStoch - Stochastic Maps", icon="🗺️")
+    st.page_link("./pages/5_finstoch.py", label="FinStoch - Stochastic Maps", icon="🗺️")
     st.page_link(
-        "./pages/6_Categorical_DS.py", label="Categorical Data Science", icon="📊"
+        "./pages/6_categorical_ds.py", label="Categorical Data Science", icon="📊"
     )
     st.page_link("./pages/7_Next_Steps.py", label="Next Steps", icon="🐾")
-    st.page_link("./pages/8_Rescources.py", label="Resources", icon="📚")
+    st.page_link("./pages/8_rescources.py", label="Resources", icon="📚")
 
 st.image("./img/ml_xkcd.png", caption="xkcd Ml meme", use_container_width=True)
