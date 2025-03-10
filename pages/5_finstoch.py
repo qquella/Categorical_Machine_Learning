@@ -19,14 +19,17 @@ st.markdown(
 """
 )
 
+
 st.video("./vid/FinStochAnimation.mp4")
 
 col1, col2 = st.columns(2)
 
 with col1:
     st.subheader(
+
         """
     Additional Properties
+    
     """
     )
     st.markdown(
@@ -61,6 +64,12 @@ with col2:
 
     """
     )
+
+st.markdown(
+"""
+---
+"""
+)
 
 st.subheader(
     """
