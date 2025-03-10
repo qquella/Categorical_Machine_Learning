@@ -3,38 +3,39 @@ import streamlit as st
 st.title("$\mathbf{FinStoch}$ -- Category of Stochastic Maps")
 
 st.subheader(
-"""
+    """
 $\mathbf{FinStoch}$ Definition
 """
 )
 
 st.markdown(
-"""
+    """
 - A category equipped with:
 
     - **Objects**: Finite Sets
 
     - **Morphisms**: Stochastic Maps
+    \n
 """
 )
 
-st.markdown(
-"""
----
-"""
-)
+
+st.video("./vid/FinStochAnimation.mp4")
 
 col1, col2 = st.columns(2)
 
 with col1:
     st.subheader(
-    """
-    Properties
+
+        """
+    Additional Properties
+    
     """
     )
     st.markdown(
-    """
-    **Composition:** $(g \circ f)(z | x): \Sigma_{y \in Y} g(z | y)f(y | x)$
+        """
+    **Composition:** $(g \circ f)(z | x)$:
+    #### $\Sigma_{y \in Y} g(z | y)f(y | x)$
 
     - Chapman-Kolmogorov Equation
 
@@ -50,13 +51,13 @@ with col1:
 
 with col2:
     st.markdown(
-    """
+        """
     #### Reference Maps
     """
     )
 
     st.markdown(
-    """
+        """
     $f: X \\rightarrow Y$
 
     $g: Y \\rightarrow Z$
@@ -71,13 +72,13 @@ st.markdown(
 )
 
 st.subheader(
-"""
+    """
 Additional Properties
 """
 )
 
 st.markdown(
-"""
+    """
 1. $\mathbf{FinStoch}$ - an example of a Markov Category
 
 2. Goals categorical probability
