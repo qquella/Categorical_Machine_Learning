@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import streamlit as st
+from numpy import imag
 
 st.set_page_config(
     page_title="Markrov Decision Process (MDP)", page_icon="⚂", layout="wide"
@@ -53,16 +54,49 @@ with st.expander("Policy (π)"):
     )
 
 
+st.markdown(
+    """
+#### _Example: **Grid World**_
+
+"""
+)
+
+st.image("./img/gridworld.png")
+
+st.markdown(
+    """
+
+#####  Stochastic (Non-deterministic)
+
+Noisy movement: actions do not always go as planned
+ - 80% of the time, the action North takes the agent North (if there is no wall there)
+ - 10% of the time, North takes the agent West; 10% East
+ - If there is a wall in the direction the agent would have been taken, the agent stays put
+
+```
+python gridworld.py -m
+```
+"""
+)
+
 # Explanation of MDP Sequence
 st.header("$\pi(a|s)$")
 st.markdown(
     """
-    - This is a state dependent distribution over actions t
+    ##### For MDPs, we want an optimal :red[policy $\pi^*$: S → A]
+    - This is a state dependent distribution over actions a
     - The agent selects actions by sampling from this distrib distribution
+    - An optimal policy is one that maximizes expected utility if followed
     - if we run the policy through the mdp we'll get a trajectory of States actions and rewards:
 """
 )
-st.header("The Sequence: $(s_0, a_0, r_0, s_1, ...)$")
+
+st.image(
+    "./img/optimal_policy.png",
+    caption="Example Optimal Policy $\pi^*$ for Different Reward Function $R(s)$",
+)
+
+st.subheader("The Sequence: $(s_0, a_0, r_0, s_1, ...)$")
 
 st.markdown(
     """
@@ -72,6 +106,44 @@ An agent interacts with an environment through a sequence of actions and observa
 2. The agent takes an action $$ a_0 $$ based on a policy $$ \pi(s_0) $$.
 3. The environment responds with a reward $$ r_0 $$ and a new state $$ s_1 $$.
 4. This process repeats over time: $$ (s_0, a_0, r_0, s_1, a_1, r_1, s_2, ...) $$.
+
+"""
+)
+
+st.image("./img/mdp_search_tree.png", caption="MDP Search Tree")
+
+st.markdown(
+    """
+    #### Discounting 
+ - More or less?
+[1, 2, 2] or [2, 3, 4]
+
+ - Now or later?
+[0, 0, 1] or [1, 0, 0]
+    """
+)
+
+with st.expander("Answer"):
+    st.markdown(
+        """
+        - We want to maximize the sum of rewards
+        - We prefer rewards now to rewards later
+        - One solution: values of rewards decay exponentially
+        """
+    )
+
+    st.image("./img/discounting.png", caption="Discounting")
+
+    st.markdown(
+        """
+        Example: discount of $0.5$
+- $U([1,2,3]) = 1*1 + 0.5*2 + 0.25*3$
+- $U([1,2,3]) < U([3,2,1])$
+        """
+    )
+
+st.markdown(
+    """
 
 ##### we want the gamma discounted sum of future rewards to be high when averaged over many trajectories
 
@@ -110,8 +182,86 @@ st.write(
 )
 plot_discounted_return()
 
+st.header("Optimal Quantities")
+
+st.markdown(
+    """
+##### - :blue[The value (utility) of a state s]:
+$V^*(s)$ = expected utility starting in s and acting optimally
+
+##### - :green[The value (utility) of a q-state (s,a)]:
+$Q^*(s,a)$ = expected utility starting out having taken action a from state s and (thereafter) acting optimally
+
+##### - :red[The optimal policy]:
+$\pi^*(s)$ = optimal action from state s
+
+>>> Example: Gridworld :blue[V Values] and Gridworld :green[Q Values]
+```
+python gridworld.py -a value -i 100 -k 10
+```
+"""
+)
+
+with st.expander("How to be Optimal???"):
+    st.image("./img/opt.png")
+
+st.markdown(
+    """
+    #### [Bellman Equations] Recursive definition of value:
+  #####  $$ V^*(s) = \max_{a}Q^*(s,a) $$
+
+#####    $$ Q^*(s,a) = \sum_{s'} T(s,a,s')[R(s,a,s') + \gamma V^*(s')] $$
+
+##### $$ V^*(s) = \max_{a}  \sum_{s'} T(s,a,s')[R(s,a,s') + \gamma V^*(s')] $$
+
+Example:
+```
+ python gridworld.py -a value -i 0
+```
+    """
+)
+
+st.markdown(
+    """
+    #### Value Iteration 
+- Start with $V_0(s) = 0$: no time steps left means an expected reward sum of zero
+-  Given vector of $V_k(s)$ values, do one ply of expectimax from each state
+##### $V_{k+1}(s) <- \max_{a}  \sum_{s'} T(s,a,s')[R(s,a,s') + \gamma V^*(s')] $
+- Repeat until convergence
+- Complexity of each iteration: $O(S^2A)$
+- Theorem: will converge to unique optimal values
+    - Basic idea: approximations get refined towards optimal values
+    - Policy may converge long before values do
+
+Example:
+    """
+)
+
+st.image("./img/value_iter.png", caption="Value Iteration Example")
+
+st.markdown(
+    """
+    #### Policy Methods
+    ##### Fixed Policy
+    """
+)
+
+st.image("./img/fixed_p.png", caption="Fixed Policy")
+
+st.markdown(
+    """
+    ##### Idea: Turn recursive Bellman equations into updates
+    - #### $V^{\pi}_{0}(s) = 0$
+    - #### $V^{\pi}_{k+1}(s) <- \sum_{s'} T(s,a,s')[R(s,a,s') + \gamma V^*(s')] $
+
+    Note: Without the maxes, the Bellman equations are just a linear system
+    """
+)
+
+st.image("./img/rf.png", caption="Policy Evaluation")
+
 # Interactive Policy Example
-st.header("Policy Demonstration")
+st.subheader("Policy Demonstration")
 
 policy_type = st.selectbox(
     "Choose a policy type:",
@@ -130,6 +280,54 @@ else:
     st.write(
         "In an **exploration-exploitation balance**, the agent sometimes explores new actions while often choosing the best-known action."
     )
+
+st.markdown(
+    """
+    #### Computing Actions from Q-Values
+    ##### $\{pi^*}(s) = \\argmax_{a} Q^*(s,a)$
+
+    ````
+     python gridworld.py -a q -k 20
+    ``
+    """
+)
+
+st.markdown(
+    """
+    ### Insight into Learning
+    """
+)
+
+st.image("./img/slot_m.png")
+st.image("./img/slot2.png", caption="after 100 rounds: red 150, blue 100")
+
+st.markdown(
+    """
+    ### $$$    
+\n
+
+#### Playing w/ Unknown Model
+    """
+)
+
+st.image("./img/unknown.png", caption="Rules changed! Red’s win chance is different")
+
+st.image("./img/play2.png")
+
+st.markdown(
+    """
+    ##### Continue???
+
+    - Exploration
+    - Regrets
+    - Sampling
+    \n
+    #### Planing -> Learning
+    """
+)
+
+st.image("./img/pigoen_ml.png")
+st.image("./img/fire.png")
 
 st.title("Monte Carlo(MC) Methods")
 
