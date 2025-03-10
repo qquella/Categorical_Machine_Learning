@@ -26,6 +26,10 @@ tab3.markdown(
 tab2.subheader(":green[Environments]")
 tab2.markdown(
     """
+
+##### - [Gymnasium](https://gymnasium.farama.org/) - Highly recommanded! Gymnasium is a maintained fork of OpenAI’s Gym library. The Gymnasium interface is simple, pythonic, and capable of representing general RL problems, and has a compatibility wrapper for old Gym environments
+\n
+
 - [Carla](https://github.com/carla-simulator/carla) - Open-source simulator for autonomous driving research.
 - [CuLE](https://github.com/NVlabs/cule) - A CUDA port of the Atari Learning Environment (ALE).
 - [Deepdrive](https://github.com/deepdrive/deepdrive) - End-to-end simulation for self-driving cars.
@@ -101,7 +105,15 @@ tab1.markdown(
 - [Uber Engieering Blogs](https://www.uber.com/blog/boston/engineering/?uclick_id=18f65113-74c3-4331-a760-429faad389d1) -- The technology behind Uber Engineering
     \n
 - [Markov category (nLab)](https://ncatlab.org/nlab/show/Markov+category) -- a wiki for collaborative work on Mathematics, Physics, and Philosophy
+
     """
+    \n
+- [Function Approximation in Reinforcement Learning](https://towardsdatascience.com/function-approximation-in-reinforcement-learning-85a4864d566/) -- What to do when state and action spaces explode… literally?
+\n
+- [Introduction to Q-learning with OpenAI Gym](https://medium.com/swlh/introduction-to-q-learning-with-openai-gym-2d794da10f3d) -- A step-by-step guide to using Q-learning to solve a simple Taxi-3 environment in OpenAI Gym
+
+"""
+
 )
 
 tab4.subheader(":blue[Books]")

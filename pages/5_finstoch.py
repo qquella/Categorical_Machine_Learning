@@ -19,34 +19,23 @@ st.markdown(
 """
 )
 
-<<<<<<< HEAD
-st.markdown(
-"""
----
-"""
-)
 
-||||||| parent of 07fa85e (add animations and resources)
-=======
+
 st.video("./vid/FinStochAnimation.mp4")
 
->>>>>>> 07fa85e (add animations and resources)
+
 col1, col2 = st.columns(2)
 
 with col1:
     st.subheader(
-<<<<<<< HEAD
-    """
-    Properties
-||||||| parent of 07fa85e (add animations and resources)
+
+
     """
     Additional Properties
-=======
-        """
-    Additional Properties
->>>>>>> 07fa85e (add animations and resources)
-    """
+
+ """
     )
+    
     st.markdown(
         """
     **Composition:** $(g \circ f)(z | x)$:

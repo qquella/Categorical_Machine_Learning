@@ -26,7 +26,7 @@ with st.expander("Topics Overview", expanded=True):
         label="What Is Catergory Theory?",
         icon="🧩",
     )
-    st.page_link("./pages/5_finstoch.py", label="FinStoch - Stochastic Maps", icon="🗺️")
+    st.page_link("./pages/5_Finstoch.py", label="FinStoch - Stochastic Maps", icon="🗺️")
     st.page_link(
         "./pages/6_Categorical_DS.py", label="Categorical Data Science", icon="📊"
     )
