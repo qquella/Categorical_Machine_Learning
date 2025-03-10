@@ -20,9 +20,9 @@ with st.expander("Topics Overview", expanded=True):
         label="Temporal Difference Learning",
         icon="🎮",
     )
-    st.page_link("./pages/3_Q_Learning.py", label="Q-Learning", icon="♟️")
+    st.page_link("./pages/3_q_learning.py", label="Q-Learning", icon="♟️")
     st.page_link(
-        "./pages/4_Category_Theory_Basics.py",
+        "./pages/4_category_theory_basics.py",
         label="What Is Catergory Theory?",
         icon="🧩",
     )
@@ -30,7 +30,7 @@ with st.expander("Topics Overview", expanded=True):
     st.page_link(
         "./pages/6_categorical_ds.py", label="Categorical Data Science", icon="📊"
     )
-    st.page_link("./pages/7_Next_Steps.py", label="Next Steps", icon="🐾")
+    st.page_link("./pages/7_next_steps.py", label="Next Steps", icon="🐾")
     st.page_link("./pages/8_rescources.py", label="Resources", icon="📚")
 
 st.image("./img/ml_xkcd.png", caption="xkcd Ml meme", use_container_width=True)
