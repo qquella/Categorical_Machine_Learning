@@ -1,7 +1,9 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title="Reinforcement Learning & FinStoch in ML", page_icon="⚂", layout="wide"
+    page_title="Reinforcement Learning & FinStoch in ML",
+    page_icon="./img/unicorn.png",
+    layout="wide",
 )
 
 st.title(":red[Reinforcement Learning] & :green[FinStoch] in _Machine Learning_")
@@ -16,7 +18,7 @@ with st.expander("Topics Overview", expanded=True):
         icon="🎲",
     )
     st.page_link(
-        "./pages/2_Temporal_Difference.py",
+        "./pages/2_temporal_difference.py",
         label="Temporal Difference Learning",
         icon="🎮",
     )
