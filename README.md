@@ -2,7 +2,8 @@
 
 Welcome to the **Categorical Machine Learning** repository! This project explores the fascinating intersection of **Reinforcement Learning** (RL) and **Category Theory** (CT), providing a unique perspective on how these two domains can synergize to advance the field of machine learning.
 
-## Visit the deployed version of the site: [Categorical Machine Learning Demo](https://categoricalml.streamlit.app/)
+## Visit the deployed version of the site: <a href="https://categoricalml.streamlit.app/" target="_blank">Categorical Machine Learning Demo</a>
+
 
 ## Table of Contents
 
