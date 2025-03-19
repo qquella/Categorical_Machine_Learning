@@ -284,7 +284,7 @@ else:
 st.markdown(
     """
     #### Computing Actions from Q-Values
-    ##### $\{pi^*}(s) = \\argmax_{a} Q^*(s,a)$
+    ##### $\pi^*(s) = \\argmax_{a} Q^*(s,a)$
 
     ````
      python gridworld.py -a q -k 20
